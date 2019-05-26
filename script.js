@@ -11,7 +11,7 @@ while (number < 0 || !Number.isInteger(parseInt(number))) {
 if (number < 5) {
     console.log('Sorry, no numbers');
 } else { 
-    for (let i = 0; i <= number; i++) {
+    for (let i = 5; i <= number; i+= 5) {
         if ((i % 5) === 0) {
             console.log(i);
         }
