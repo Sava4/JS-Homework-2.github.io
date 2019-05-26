@@ -8,6 +8,7 @@ let number = prompt('Please enter number');
 
 while (number < 0 || !Number.isInteger(parseInt(number))) {
     lastNumber = number;
+    console.count('User tries');
     number = prompt('Try again. Please and enter number', `${lastNumber}`);
 }
 
