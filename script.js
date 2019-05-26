@@ -29,8 +29,9 @@ while (numM < 1 || !Number.isInteger(numM) && numN < 1 || !Number.isInteger(numN
 
 const bigger = Math.max(numM, numN);
 const smaller = Math.min(numM, numN);
-let nonPrime = [1];
+let nonPrime = [1]; //initialise with number 1 as first non prime Integer
 
+//find all non-prime numbers between N & M
 for (let i = smaller; i <= bigger; i++) {
     for (let n = 2; n <= Math.sqrt(i); n++) {
         if ((i % n) === 0) {
@@ -40,6 +41,7 @@ for (let i = smaller; i <= bigger; i++) {
     }
 }
 
+//print prime number if it's not present in non-prime array 
 for (let i = smaller; i <= bigger; i++) {
     if (!nonPrime.includes(i)) {
         console.log(`Prime number: ${i}`);
