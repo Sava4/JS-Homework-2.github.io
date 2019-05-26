@@ -1,15 +1,11 @@
-let lastNumber = 'unmodified'; 
-// let lastName = 'unmodified';
-
 // Циклы нужны для выполнения повторяющихся частей кода. Компьютеры хорошо считают повторяющиеся задачи.
 // Многие задачи можно разложить на однотипные и выполнять много раз для достижения нужного результата.
 
-let number = prompt('Please enter number');
+let number = Number(prompt('Please enter number'));
 
 while (number < 0 || !Number.isInteger(parseInt(number))) {
-    lastNumber = number;
     console.count('User tries');
-    number = prompt('Try again. Please and enter number', `${lastNumber}`);
+    number = Number(prompt('Try again. Please and enter number', `${number}`));
 }
 
 if (number < 5) {
@@ -22,22 +18,30 @@ if (number < 5) {
     }  
 }
 
+let numM = Number(prompt('Please enter number M'));
+let numN = Number(prompt('Please enter number N'));
 
-// let name = prompt('Please enter your name');
+while (numM < 1 || !Number.isInteger(numM) && numN < 1 || !Number.isInteger(numN) ) {
+    console.count('User tries');
+    numM = Number(prompt('Try again. Please and enter number', `${numM}`));
+    numN = Number(prompt('Try again. Please and enter number', `${numN}`));
+}
 
-// while (name === null || name === '' || name === ' ' || !isNaN(name)) {
-//     lastName = name;
-//     name = prompt('Please enter your name', `${lastName}`);
-// }
+const bigger = Math.max(numM, numN);
+const smaller = Math.min(numM, numN);
+let nonPrime = [1];
 
-// if (age < 18) {
-//     alert('You are not allowed to visit this website.');
-//     document.getElementById("app").innerHTML = '<h1>You are not allowed to visit this website.</h1>'
-// } else if (age <= 22) {
-//     let decision = confirm('Are you sure you want to continue?');
-//     decision ? alert(`Welcome, ${name}`) : alert('You are not allowed to visit this website.');
-// } else if (age > 22) {
-//     alert(`Welcome, ${name}`);
-//     document.getElementById("app").innerHTML = `<h1>Welcome, ${name}</h1>`
+for (let i = smaller; i <= bigger; i++) {
+    for (let n = 2; n <= Math.sqrt(i); n++) {
+        if ((i % n) === 0) {
+            nonPrime.push(i);
+            break;
+        }
+    }
+}
 
-// }
+for (let i = smaller; i <= bigger; i++) {
+    if (!nonPrime.includes(i)) {
+        console.log(`Prime number: ${i}`);
+    }
+}
